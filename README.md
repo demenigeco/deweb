@@ -47,9 +47,8 @@ Dai un’occhiata anche al mio pacchetto [utiilityes](https://pypi.org/project/u
 
 
  # Community Fandom
-
+ 
  Fai nella nostra community fandom di DeWeb
  👉 [Vai alla Community](https://utiteam-deweb.fandom.com/it/wiki/DeWeb_Wiki)
+ 👉 [Documentazione Ufficiale](https://utiteam-deweb.fandom.com/it/wiki/Documentazione_ufficiale)
 
- Fra poco porteremo anche la documentazione ufficiale.
- 👉 Documentazione Ufficiale (in sviluppo)
