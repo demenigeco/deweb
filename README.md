@@ -43,7 +43,8 @@ Dai un’occhiata anche al mio pacchetto [utiilityes](https://pypi.org/project/u
 
  | Versione | Stato | Note |
  | -------- | ----- | ---- |
- | 1.0.0 | Nuova | - |
+ | 1.0.0 | Accetabile | - |
+ | 1.0.1 | Nuova | Gestione degli errori | 
 
 
  # Community Fandom
