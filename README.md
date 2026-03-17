@@ -45,8 +45,8 @@ Dai un’occhiata anche al mio pacchetto [utiilityes](https://pypi.org/project/u
  | -------- | ----- | ---- |
  | 1.0.0 | Acctabile | - |
  | 1.0.1 | Accetabile | Gestione degli errori | 
- | 1.0.2 | Nuova | test.py nuovo e nuovo SetFlag() |
-
+ | 1.0.2 | Accetabile | test.py nuovo e nuovo SetFlag() |
+ | 1.0.3 | Nuova | Sistemazione problemi della 1.0.2 |
 
  # Community Fandom
  
