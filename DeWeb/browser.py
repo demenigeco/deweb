@@ -7,7 +7,6 @@ class DeWebParser:
 
     charged = False
 
-
     @staticmethod
     def DeWebError(code):
             print(f"Avviso: {code}:")
@@ -29,6 +28,37 @@ class DeWebParser:
                     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
                     print("È possibile risolvere al link https://utiteam-deweb.fandom.com/it/wiki/Codici_Errore")
                     raise SystemExit
+            elif code=="QtFlagsError":
+                        print("+Qt                 :        Errore in QtWebEngine/Chromium")
+                        print("+FlagsError         :        Errore di flags")
+                        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+                        print("È possibile risolvere al link https://utiteam-deweb.fandom.com/it/wiki/Codici_Errore")
+
+
+
+
+@staticmethod
+def SetFlag(flag, value):
+    # Flag di QtWebEngine
+    # Se ci sono -> OK
+    # Se non ci sono: DeWebError("QtFlagsError")
+
+    from PySide6.QtWebEngineCore import QWebEngineSettings
+
+    # Ottieni le impostazioni globali
+    settings = QWebEngineSettings.defaultSettings()
+
+    try:
+        # Ottieni il flag da Qt (enum WebAttribute)
+        qt_flag = getattr(QWebEngineSettings.WebAttribute, flag)
+
+        # Imposta il valore (True/False)
+        settings.setAttribute(qt_flag, value)
+
+    except AttributeError:
+        # Flag non esistente
+        DeWebParser.DeWebError("QtFlagsError")
+                 
 
     @staticmethod
     def prepare_load():
