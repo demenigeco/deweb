@@ -37,28 +37,27 @@ class DeWebParser:
 
 
 
-@staticmethod
-def SetFlag(flag, value):
-    # Flag di QtWebEngine
-    # Se ci sono -> OK
-    # Se non ci sono: DeWebError("QtFlagsError")
+    @staticmethod
+    def SetFlag(flag, value):
+        # Flag di QtWebEngine
+        # Se ci sono -> OK
+        # Se non ci sono: DeWebError("QtFlagsError")
 
-    from PySide6.QtWebEngineCore import QWebEngineSettings
+        from PySide6.QtWebEngineCore import QWebEngineSettings
 
-    # Ottieni le impostazioni globali
-    settings = QWebEngineSettings.defaultSettings()
+        # Ottieni le impostazioni globali
+        settings = QWebEngineSettings.defaultSettings()
 
-    try:
-        # Ottieni il flag da Qt (enum WebAttribute)
-        qt_flag = getattr(QWebEngineSettings.WebAttribute, flag)
+        try:
+            # Ottieni il flag da Qt (enum WebAttribute)
+            qt_flag = getattr(QWebEngineSettings.WebAttribute, flag)
 
-        # Imposta il valore (True/False)
-        settings.setAttribute(qt_flag, value)
+            #   Imposta il valore (True/False)
+            settings.setAttribute(qt_flag, value)
 
-    except AttributeError:
-        # Flag non esistente
-        DeWebParser.DeWebError("QtFlagsError")
-                 
+        except AttributeError:
+            # Flag non esistente
+            DeWebParser.DeWebError("QtFlagsError")
 
     @staticmethod
     def prepare_load():
