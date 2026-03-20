@@ -6,6 +6,7 @@ import sys
 class DeWebParser:
 
     charged = False
+    flags = {}  # 👈 salva i flag
 
     @staticmethod
     def DeWebError(code):
@@ -39,25 +40,9 @@ class DeWebParser:
 
     @staticmethod
     def SetFlag(flag, value):
-        # Flag di QtWebEngine
-        # Se ci sono -> OK
-        # Se non ci sono: DeWebError("QtFlagsError")
-
-        from PySide6.QtWebEngineCore import QWebEngineSettings
-
-        # Ottieni le impostazioni globali
-        settings = QWebEngineSettings.defaultSettings()
-
-        try:
-            # Ottieni il flag da Qt (enum WebAttribute)
-            qt_flag = getattr(QWebEngineSettings.WebAttribute, flag)
-
-            #   Imposta il valore (True/False)
-            settings.setAttribute(qt_flag, value)
-
-        except AttributeError:
-            # Flag non esistente
-            DeWebParser.DeWebError("QtFlagsError")
+        # Salva il flag invece di applicarlo subito
+        DeWebParser.flags[flag] = value
+        print(f"[FLAG] {flag} = {value}")
 
     @staticmethod
     def prepare_load():
@@ -85,6 +70,20 @@ class DeWebParser:
         if DeWebParser.charged:
             app = QApplication(sys.argv)
             view = QWebEngineView()
+
+            # 👇 Applica tutti i flag qui
+            from PySide6.QtWebEngineCore import QWebEngineSettings
+
+            settings = view.settings()
+
+            for flag, value in DeWebParser.flags.items():
+                try:
+                    qt_flag = getattr(QWebEngineSettings.WebAttribute, flag)
+                    settings.setAttribute(qt_flag, value)
+                    print(f"[APPLIED] {flag}")
+                except AttributeError:
+                    DeWebParser.DeWebError("QtFlagsError")
+
             view.load(QUrl(url))
             view.setWindowTitle(pagetitle if pagetitle else url)
             view.show()
