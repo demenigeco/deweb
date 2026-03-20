@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "DeWeb"
-version = "1.0.3"
+version = "1.0.4"
 description = "Un piccolo parser per creare finestre con pagine web in Python"
 readme = "README.md"
 license = { text = "Apache-2.0" }
