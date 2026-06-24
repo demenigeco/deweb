@@ -37,7 +37,7 @@ Licenza **Apache 2.0**
 
 # Altre librerie
 
-Dai un’occhiata anche al mio pacchetto [utiilityes](https://pypi.org/project/utiilityes)
+Dai un’occhiata anche al mio pacchetto [utiilityes](https://pypi.org/project/utiilityes) e [zompi](https://pypi.org/project/zompi)
 
 # Tabbella versioni
 
